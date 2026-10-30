@@ -1,162 +1,239 @@
+.navbar a{
+  text-decoration: none;
+  color: white;
+  font-size:  18px;
+  transition: color 0.3s ease;
+}
+.navbar a:hover{
+    color: aqua;
+}
+nav {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px 50px;
+font-size: 18px;
+box-sizing: border-box;
+border-radius: 15px;
+gap: 50px;
+  background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.04)
+    );
+
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 10px 40px rgba(235, 233, 233, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+ 
+}
+.nav-links{
+    display: flex;
+    gap: 30px;
+}
+/* --- 1. Настройки глобального скролла для всей страницы --- */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; 
+    scroll-snap-type: y mandatory; /* Жесткая фиксация экранов */
     overflow-y: scroll;
-    background-color: #0b0f19;
+    background-color: #0b0f19; /* Фирменный глубокий темный фон */
     color: #f3f4f6;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Скрываем стандартную белую полосу скроллбара браузера */
+    scrollbar-width: none; /* Для Firefox */
 }
 
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* --- 3. Главная магия: Настройка полноэкранных страниц --- */
 .hero, 
 .intro-container, 
 .intro-container_two,
 .intro-container_three {
-    height: 100vh; 
+    min-height: 100vh;
+    height: auto; 
     width: 100%;
-    scroll-snap-align: start; 
+    scroll-snap-align: start; /* Прилипание по верхнему краю */
     scroll-snap-stop: always; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 80px 40px 40px 40px; /* Верхний padding 80px, чтобы текст не уходил под навбар */
     position: relative;
 }
 
-.fade-in, .fade {
-    max-width: 800px;
+.fade-in,
+.fade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
-    max-height: 85vh; 
-    overflow-y: auto;  
-    padding-right: 15px;
-    background: rgba(255, 255, 255, 0.03); /* Очень легкий, едва заметный стеклянный фон */
-    border: 1px solid rgba(56, 189, 248, 0.15); /* Тонкая неоново-голубая граница */
-    border-radius: 16px; /* Скругляем углы карточки */
-    padding: 30px; /* Внутренние отступы, чтобы текст не прижимался к скруглениям */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Мягкая тень под карточкой для объема */
+    padding: 35px;
+    gap: 20px;
+
     box-sizing: border-box;
 }
-.fade-in::-webkit-scrollbar,
-.fade::-webkit-scrollbar {
-    width: 6px; 
-}
 
-.fade-in::-webkit-scrollbar-track,
-.fade::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.01); 
-    border-radius: 10px; 
-}
-
-.fade-in::-webkit-scrollbar-thumb,
-.fade::-webkit-scrollbar-thumb {
-    background: #38bdf8; 
-    border-radius: 10px; 
-}
-.fade-in h2, 
-.fade h3, 
+.fade-in h2,
+.fade h3,
 .fade h4 {
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 2.2rem;
-    color: #38bdf8; 
-    
+    font-size: 2rem;
+    color: #38bdf8;
+    margin: 10px 0;
 }
 
-
-.fade-in p, 
+.fade-in p,
 .fade p {
     font-size: 18px;
-    line-height: 1.7;
-    white-space: pre-line; 
-    margin-bottom: 22px;
-    color: #cbd5e1; 
+    line-height: 1.8;
+    color: #cbd5e1;
     text-align: justify;
-
-     animation: glow-text 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    
-  
-    animation-delay: 0.4s; 
-    
-    opacity: 0; 
+    white-space: pre-line;
 }
-.hero.active h1 {
-    animation: fade-in 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
+.fade-in img,
+.fade img {
+    width: 100%;
+    height: 550px;
 
-.hero.active p {
-    animation: glow-text 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.4s;
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 20px;
+    display: block;
 }
 
-
-.intro-container .fade-in,
-.intro-container_two .fade,
-.intro-container_three .fade {
-    opacity: 0;
-    transform: translateY(40px);
-    filter: blur(5px);
-    transition: opacity 1s ease-out, transform 1s ease-out, filter 1s ease-out;
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Как только пользователь доскроллил до слайда — карточка плавно «выплывает» */
-.intro-container.active .fade-in,
-.intro-container_two.active .fade,
-.intro-container_three.active .fade {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+.hero img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+    filter: brightness(45%);
 }
-.hero span{
-       position: absolute;
-    bottom: 40px; 
-    left: 50%;   
-    transform: translateX(-50%); 
-    
-  
-    font-size: 0.95rem;
-    color: #6b7280;
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-    
-   
-    animation: bounce 2s infinite; 
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.75)
+    );
+
+    z-index: 1;
+    pointer-events: none;
 }
-.hero h1 {
-    font-size: 3.5rem;
+
+.hero h1,
+.hero p,
+.hero span {
+    position: relative;
+    z-index: 2;
+}
+
+.info-us {
+    height: 12vh; /* Не занимает целый экран, а аккуратно прилипает в конце */
+    width: 100%;
+    background-color: #070a12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    scroll-snap-align: end; /* Примагничивается к низу монитора */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-us a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.info-us a:hover {
     color: #38bdf8;
-    margin-bottom: 20px;
-    animation: fade-in 1s ease-in;
+}
+
+.hero h1 {
+    font-size: 40px;
+    animation:
+        fade-in 1.2s ease forwards,
+        glow 1.5s ease-in-out 1.5s infinite alternate;
 }
 .hero p {
-    font-size: 1.2rem;
-    color: #9ca3af;
-    text-align: center;
-    animation: fade-in 1s ease-in;
+    font-size: 20px;
+    animation:
+        fade-in 1.2s ease forwards,
+        glow 1.5s ease-in-out 1.5s infinite alternate;
 }
-@keyframes fade-in{
-     0% {
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+@keyframes fade-in {
+    from {
         opacity: 0;
-        transform: translateY(20px); 
-        filter: blur(5px);           
+        transform: translateY(30px);
+        color: white;
     }
-    100% {
+
+    to {
         opacity: 1;
-        transform: translateY(0);    
-        filter: blur(0);            
+        transform: translateY(0);
+        color: #38bdf8;
     }
 }
-@keyframes glow-text {
-    0% {
-        opacity: 0;
-        filter: brightness(0.2); 
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #38bdf8;
     }
-    100% {
-        opacity: 1;
-        filter: brightness(1);   
+
+    to {
+        text-shadow:
+            0 0 10px #38bdf8,
+            0 0 20px #38bdf8,
+            0 0 30px #0284c7;
     }
 }

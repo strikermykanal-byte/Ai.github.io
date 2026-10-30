@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/iconAI.png">
+    <title>Contact us</title>
+</head>
+<body>
+    <form id="contact-form" action="https://formspree.io/f/xqpklvkr" method="POST">
+    <div class="contact">
+        <h1>Do you have any questions? <span class="text">You can to contact us.</span></h1>
+        <div class="inp">
+        <span>Username <i class="fa-solid fa-user"></i></span>
+        <input type="text" id="user" placeholder="Ivan Ivanov" required>
+
+        <span>Phone <i class="fa-solid fa-mobile-screen"></i></span>
+        <input type="phone" id="num" placeholder="+8 999 999 99 99" required>
+
+        <span>E-mail <i class="fa-solid fa-envelope"></i></span>
+        <input type="email" id="email" placeholder="seamlessai@registr.yep" required>
+
+        <span>Message <i class="fa-solid fa-message"></i></span>
+        <textarea name="mes" id="mes" placeholder="Enter your message"></textarea>
+        <button id="sendBtn">Send <i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+        </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
