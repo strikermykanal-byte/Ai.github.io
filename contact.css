@@ -57,3 +57,41 @@
     background: #0c198a;
     color: white;
 }
+@media (max-width: 768px) {
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 10px;
+    }
+
+    .contact {
+        padding: 30px 16px;
+        text-align: center;
+    }
+    .contact .book-img img {
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+    }
+    .contact h1 {
+        font-size: 30px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+    .contact-inp {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 16px;
+    }
+    .contact-inp input,
+    .contact-inp textarea {
+        width: 100%;
+        font-size: 16px; 
+    }
+    .contact-inp button {
+        width: 100%;
+        padding: 12px;
+    }
+}
