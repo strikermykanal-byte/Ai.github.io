@@ -237,6 +237,16 @@ body::-webkit-scrollbar {
     }
 }
 @media (max-width: 768px) {
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 12px;
+        padding: 10px 12px;
+    }
+    .navbar nav a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
     .about,
     .info {
         width: 100%;

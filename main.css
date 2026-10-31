@@ -22,16 +22,7 @@
     }
 
     /* навигация */
-    .navbar nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px 12px;
-        padding: 10px 12px;
-    }
-    .navbar nav a {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
+    
 
     /* блоки с текстом */
     .intro-container,
