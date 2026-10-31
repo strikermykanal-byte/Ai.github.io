@@ -120,9 +120,9 @@ body::-webkit-scrollbar {
 .fade-in img,
 .fade img {
     width: 100%;
-    height: 550px;
+    height: 200px;
 
-    object-fit: contain;
+    object-fit:contain;
     object-position: center;
 
     display: block;
@@ -236,46 +236,56 @@ body::-webkit-scrollbar {
             0 0 30px #0284c7;
     }
 }
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    html {
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: none;
+    }
+    body {
+        height: auto;
+        overflow-y: visible;
+        scroll-snap-type: none;
+    }
+    .hero,
+    .intro-container,
+    .intro-container_two,
+    .intro-container_three,
+    .info-us {
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+    }
+}
+
 @media (max-width: 768px) {
-    .navbar nav {
+
+    nav {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 6px 12px;
+        gap: 4px 14px;
         padding: 10px 12px;
+        border-radius: 0 0 14px 14px;
     }
-    .navbar nav a {
+    .navbar a {
         font-size: 14px;
+        padding: 4px 2px;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    nav {
+        gap: 4px 12px;
         padding: 8px 10px;
     }
-    .about,
-    .info {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        padding: 24px 10px;
+    .navbar a {
+        font-size: 13px;
     }
-    .about h1,
-    .info h1 {
-        font-size: 28px;
-        line-height: 1.3;
-    }
-    .about p,
-    .info p {
-        font-size: 16px;
-        line-height: 1.7;
-        overflow-wrap: anywhere;
-    }
-    .back {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        text-align: center;
-        padding: 20px 16px;
-    }
-    #btn {
-        width: 100%;
-        max-width: 280px;
-        padding: 12px;
+    .fade-in h2,
+    .fade h3,
+    .fade h4 {
+        font-size: 1.4rem;
     }
 }
